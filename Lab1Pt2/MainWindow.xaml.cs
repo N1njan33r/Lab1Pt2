@@ -25,12 +25,29 @@ namespace Lab1Pt2
             InitializeComponent();
         }
 
-        public string date_1;
+        public DateTime date_1;
+        public DateTime date_2;
 
         private void BtnCalc_OnClick(object sender, RoutedEventArgs e)
         {
-            date_1 = Date1.SelectedDate.Value.Date.ToShortDateString();
-            Console.WriteLine(date_1);
+            if (Date1.SelectedDate != null && Date2.SelectedDate != null)
+            {
+                date_1 = Date1.SelectedDate.Value.Date;
+                date_2 = Date2.SelectedDate.Value.Date;
+                Console.WriteLine(date_1 + " and " + date_2);
+
+                //long diffTicks = (date_2 - date_1).Ticks;
+                //Console.WriteLine(diffTicks);
+
+                TimeSpan span = date_2.Subtract(date_1);
+                Console.WriteLine(span.TotalMinutes + " minutes");
+                Console.WriteLine(span.TotalHours + " hours");
+                Console.WriteLine(span.Days + " days");
+            }
+            else
+            {
+                Console.WriteLine("Please enter dates in the provided fields.");
+            }
         }
     }
 }
