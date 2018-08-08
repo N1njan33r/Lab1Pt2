@@ -24,5 +24,13 @@ namespace Lab1Pt2
         {
             InitializeComponent();
         }
+
+        public string date_1;
+
+        private void BtnCalc_OnClick(object sender, RoutedEventArgs e)
+        {
+            date_1 = Date1.SelectedDate.Value.Date.ToShortDateString();
+            Console.WriteLine(date_1);
+        }
     }
 }
