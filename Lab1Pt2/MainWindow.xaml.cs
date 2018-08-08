@@ -38,11 +38,20 @@ namespace Lab1Pt2
 
                 //long diffTicks = (date_2 - date_1).Ticks;
                 //Console.WriteLine(diffTicks);
-
-                TimeSpan span = date_2.Subtract(date_1);
-                Console.WriteLine(span.TotalMinutes + " minutes");
-                Console.WriteLine(span.TotalHours + " hours");
-                Console.WriteLine(span.Days + " days");
+                if (date_1 < date_2)
+                {
+                    TimeSpan span = date_2.Subtract(date_1);
+                    Console.WriteLine(span.TotalMinutes + " minutes");
+                    Console.WriteLine(span.TotalHours + " hours");
+                    Console.WriteLine(span.Days + " days");
+                }
+                else if (date_2 < date_1)
+                {
+                    TimeSpan span = date_1.Subtract(date_2);
+                    Console.WriteLine(span.TotalMinutes + " minutes");
+                    Console.WriteLine(span.TotalHours + " hours");
+                    Console.WriteLine(span.Days + " days");
+                }
             }
             else
             {
